@@ -6,9 +6,17 @@ var description = document.querySelector('.description');
 var temperature = document.querySelector('.temperature');
 
 searchBtn.addEventListener('click', function() {
-    fetch('http://api.openweathermap.org/data/2.5/weather?q='+input.value+'&APPID=c7dcfbac4d6d7f4bb9b41c18434427cb')
+    fetch('http://api.openweathermap.org/data/2.5/weather?q='+input.value+'&appid=c7dcfbac4d6d7f4bb9b41c18434427cb')
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        var nameValue = data['name'];
+        var temperatureValue = data['main']['temp'];
+        var descriptionValue = data['weather'][0]['description'];
+
+        name.innerHTML = nameValue;
+        temp.innerHTML = temperatureValue;
+        description.innerHTML = descriptionValue;
+    })
 
     .catch(err => alert("Insert a city"))
 })
