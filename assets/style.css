@@ -1,20 +1,35 @@
-h1 {
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.input {
     text-align: center;
-    color: aliceblue;
-    background-color: #07079a;
+    margin: 100px 0;
 }
 
-.cityName , .cityName2, .cityName3, .cityName4, .cityName5  {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-top: 20px;
-    max-width: 40%;
+input[type="text"] {
+    height: 50px;
+    width: 600px;
+    background: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+    padding: 10px 10px;
 }
 
-.container {
-    justify-content:end;
-    padding-left: 40%;
-    padding-bottom: 100%;
-    display: inline-block;
+input[type="submit"] {
+    height: 50px;
+    width: 100px;
+    background: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+}
+
+.display {
+    text-align: center;
 }

@@ -2,6 +2,8 @@ var searchBtn = document.querySelector('.search');
 var input = document.querySelector('.input');
 var Url = "http://api.openweathermap.org/data/2.5/weather?q="
 var cityName = document.querySelector('.cityName');
+var description = document.querySelector('.description');
+var temperature = document.querySelector('.temperature');
 
 searchBtn.addEventListener('click', function() {
     fetch('http://api.openweathermap.org/data/2.5/weather?q='+input.value+'&APPID=c7dcfbac4d6d7f4bb9b41c18434427cb')
