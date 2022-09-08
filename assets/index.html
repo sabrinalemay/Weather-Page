@@ -1,25 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Weather Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="input">
-    <input type="text" class="inputValue" placeholder="Please enter a city">
-    <input type="button" value="Submit" class="searchBtn">
-</div>
+    <div class="input">
+        <input type="text" class="inputValue" placeholder="Please enter a city">
+        <input type="button" value="Submit" class="searchBtn">
+    </div>
 
-<div class="display">
-    <h1 class="cityName"></h1>
-    <p class="description"></p>
-    <p class="temperature"></p>
-</div>
-    
-<script src="script.js"></script>
+    <div id="currentDate"></div>
+    <div class="display">
+        <h1 id="cityName"></h1>
+        <p class="description"></p>
+        <p class="temperature"></p>
+        <p class="humidity"></p>
+        <p class="uvIndex"></p>
+    </div>
+
+    <div id="forcast">
+        <div id="dayOne">
+            <p class="description"></p>
+            <p class="temperature"></p>
+            <p class="humidity"></p>
+            <p class="wind"></p>
+        </div>
+    </div>
+
+    <div id="forcast">
+        <div id="dayTwo">
+            <p class="description"></p>
+            <p class="temperature"></p>
+            <p class="humidity"></p>
+            <p class="wind"></p>
+        </div>
+    </div>
+
+    <div id="forcast">
+        <div id="dayThree">
+            <p class="description"></p>
+            <p class="temperature"></p>
+            <p class="humidity"></p>
+            <p class="wind"></p>
+        </div>
+    </div>
+
+    <div id="forcast">
+        <div id="dayFour">
+            <p class="description"></p>
+            <p class="temperature"></p>
+            <p class="humidity"></p>
+            <p class="wind"></p>
+        </div>
+    </div>
+
+    <div id="forcast">
+        <div id="dayFive">
+            <p class="description"></p>
+            <p class="temperature"></p>
+            <p class="humidity"></p>
+            <p class="wind"></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

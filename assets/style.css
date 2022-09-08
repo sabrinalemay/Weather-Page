@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+/* #currentDate {
+    height: 200px;
+    background-color: aqua;
+} */
+
 .input {
     text-align: center;
     margin: 100px 0;

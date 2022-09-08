@@ -1,37 +1,42 @@
-var searchBtn = document.querySelector('.search');
-var input = document.querySelector('.input');
+var searchBtn = document.querySelector('.searchBtn');
+var inputValue = document.querySelector('.inputValue');
 var Url = "http://api.openweathermap.org/data/2.5/weather?q="
-var cityName = document.querySelector('.cityName');
-var description = document.querySelector('.description');
+var cityName = "";
 var temperature = document.querySelector('.temperature');
+var humidity = document.querySelector('.humidity');
+var currentDate = moment().format("M/D/YYYY");
+var forcast = [$("#dayOne"),$("#dayTwo"), $("#dayThree"), $("dayFour"), $("dayFive")];
+var wind = document.querySelector(".wind");
 
-searchBtn.addEventListener('click', function() {
-    fetch('http://api.openweathermap.org/data/2.5/weather?q='+input.value+'&appid=c7dcfbac4d6d7f4bb9b41c18434427cb')
+searchBtn.addEventListener('click', getWeather)
+
+function getWeather(){
+    fetch('http://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid=c7dcfbac4d6d7f4bb9b41c18434427cb')
     .then(response => response.json())
     .then(data => {
-        var nameValue = data['name'];
-        var temperatureValue = data['main']['temp'];
-        var descriptionValue = data['weather'][0]['description'];
+        console.log(data)
 
-        name.innerHTML = nameValue;
-        temp.innerHTML = temperatureValue;
-        description.innerHTML = descriptionValue;
+        var cityName = $("#cityName");
+        cityName.text(data.name + " " + currentDate);
+
+        var temperature = $(".temperature");
+        temperature.text(data.main.temp);
+
+        var humidity = $(".humidity");
+        humidity.text(data.main.humidity);
+
+        var wind = $(".wind");
+        wind.text(data.wind.speed);
+
+        // var uvIndex = $(".uvIndex");
+        // uvIndex.text(data.)
+
+       for(var i = 0; i < forcast.length; i++){
+           forcast[i].find(".temperature").text(data.weather[i+1].main.temp);
+           forcast[i].find(".humidity").text(data.weather[i+1].main.humidity);
+           forcast[i].find(".wind").text(data.weather[i+1].wind.speed);
+       }
     })
-
-    .catch(err => alert("Insert a city"))
-})
-
-var box = document.createElement("input").appendChild(cityName);
+};
 
 
-/*GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city*/
